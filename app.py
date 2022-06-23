@@ -1,11 +1,11 @@
 
-from turtle import pos
+
 from flask import Flask, redirect, render_template, flash, request, url_for
 from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime, date
-from matplotlib.pyplot import title
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
@@ -21,6 +21,7 @@ app = Flask(__name__)
 ckeditor = CKEditor(app)
 # Add Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://hhcsbnmhlbbwgj:365da5ba7b23bb688815e2172bf4fadbffd8ac5838e929cd56d1b85789b75a18@ec2-3-224-8-189.compute-1.amazonaws.com:5432/d4g40s9e4diqq6'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Cristiano@2021@localhost/our_users'
 app.config['SECRET_KEY'] = "e07e5ecdb25b94b71947500f166ce38e"
 
@@ -369,7 +370,3 @@ def page_not_found(e):
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template('500.html'), 500
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
