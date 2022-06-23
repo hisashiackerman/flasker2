@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <h1>Homepage</h1>
+
+    <p>Homepage of the blog</p>
+    <p>My name is {{ first_name }}</p>
+    <p>{{ html_stuff|title }}</p>
+
+    <h3>My Top 5 anime:</h3>
+    {% for anime in favorite_animes %}
+    {{ anime }}<br />
+    {% endfor %}
+
+    <br />
+    <p>{{ favorite_animes.0 }} is the GOAT</p>
+</body>
+
+{% endblock %}
